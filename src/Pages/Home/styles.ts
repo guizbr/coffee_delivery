@@ -18,7 +18,8 @@ export const IntroContainer = styled.section`
 	gap: 3.5rem;
 	position: relative;
 
-	margin: 5.75rem 0;
+	margin-top: 12.25rem;
+	margin-bottom: 5.75rem;
 
 	img {
 		z-index: 1;

@@ -21,7 +21,7 @@ export function Home() {
 		<main>
 			<IntroContainer>
 
-				<BackgroundLayerBlur>
+				{/* <BackgroundLayerBlur>
 					<span></span>
 					<span></span>
 					<span></span>
@@ -33,7 +33,7 @@ export function Home() {
 					<span></span>
 					<span></span>
 					<span></span>
-				</BackgroundLayerBlur>
+				</BackgroundLayerBlur> */}
 
 				<IntroDescription>
 					<h2>Encontre o café perfeito para qualquer hora do dia</h2>

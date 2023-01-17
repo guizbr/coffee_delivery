@@ -1,8 +1,16 @@
 import styled from 'styled-components'
 
-export const HeaderContainer = styled.header`
+export const HeaderContainer = styled.div`
 	width: 100%;
-	height: 6rem;
+	background: #fafafa;
+	position: fixed;
+	z-index: 9999;
+`
+
+export const HeaderContent = styled.header`
+	max-width: 76rem;
+	padding: 2rem 1rem;
+	margin: 0 auto;
 
 	display: flex;
 	align-items: center;
