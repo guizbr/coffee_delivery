@@ -1,7 +1,15 @@
 import styled from 'styled-components'
 
-export const CoffeeCard = styled.div`
-	width: 16rem;
+export const ListContainer = styled.ul`
+	display: flex;
+	flex-wrap: wrap;
+	gap: 3rem;
+	margin-bottom: 2rem;
+`
+
+export const CoffeeCard = styled.li`
+	max-width: 16rem;
+	min-width: 16rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -81,6 +89,7 @@ export const BuyContainer = styled.div`
 	gap: 1.4375rem;
 
 	span {
+		font-family: 'Baloo 2', sans-serif;
 		font-weight: 700;
 		font-size: 1.5rem;
 		line-height: 1.95rem;
@@ -88,9 +97,11 @@ export const BuyContainer = styled.div`
 		color: #574f4d;
 
 		small {
+			font-family: 'Roboto', sans-serif;
 			font-size: 0.875rem;
 			line-height: 1.1375rem;
 			font-weight: 400;
+			margin-right: 0.15rem;
 		}
 	}
 `
@@ -121,13 +132,14 @@ export const WrapperQuantityInput = styled.div`
 
 	button:nth-child(3) {
 		border-radius: 0 6px 6px 0;
-		padding: 0.75rem 0.25rem 0.75rem 0.5rem;
+		padding: 0.75rem 0.5rem 0.75rem 0.25rem;
 	}
 `
 
 export const QuantityInput = styled.input`
 	width: inherit;
 	border: none;
+	text-align: center;
 
 	background: #e6e5e5;
 

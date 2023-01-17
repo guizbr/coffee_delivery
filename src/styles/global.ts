@@ -33,6 +33,12 @@ export const GlobalStyle = createGlobalStyle`
 			text-decoration: none;
 	}
 
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
 	/* Chrome, Safari, Edge, Opera */
 	input::-webkit-outer-spin-button,
 	input::-webkit-inner-spin-button {

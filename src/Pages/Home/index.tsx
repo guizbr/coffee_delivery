@@ -11,7 +11,6 @@ import {
 	IntroContainer,
 	IntroDescription,
 	ItemsContainer,
-	BackgroundLayerBlur,
 	CoffeeListContainer
 } from './styles'
 
@@ -20,20 +19,6 @@ export function Home() {
 	return (
 		<main>
 			<IntroContainer>
-
-				{/* <BackgroundLayerBlur>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-				</BackgroundLayerBlur> */}
 
 				<IntroDescription>
 					<h2>Encontre o café perfeito para qualquer hora do dia</h2>
