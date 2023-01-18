@@ -13,7 +13,7 @@ export const IntroContainer = styled.section`
 	background-size: 136.5%;
 	box-shadow: inset 0px 0px 25px 25px #fafafa;
 
-	margin-top: 12.25rem;
+	margin-top: 12.5rem;
 	margin-bottom: 5.75rem;
 
 	img {

@@ -8,14 +8,16 @@ export function Header() {
 	return (
 		<HeaderContainer>
 			<HeaderContent>
-				<img src={logoCoffee} alt=""></img>
+				<NavLink to="/" title="Home">
+					<img src={logoCoffee} alt=""></img>
+				</NavLink>
 
 				<nav>
-					<NavLink to="/" title="Carrinho de compras">
+					<NavLink to="/checkout" title="Carrinho de compras">
 						<MapPin size={22} weight="fill"></MapPin>
 						Sem local
 					</NavLink>
-					<NavLink to="/" title="Localização">
+					<NavLink to="/checkout" title="Localização">
 						<ShoppingCart size={22} weight="fill"></ShoppingCart>
 					</NavLink>
 				</nav>
