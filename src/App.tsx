@@ -1,4 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
+import { OrderContextProvider } from './context/OrderContext'
 import { Router } from './Router'
 
 import { GlobalStyle } from './styles/global'
@@ -9,7 +10,9 @@ export function App() {
 			<GlobalStyle></GlobalStyle>
 
 			<BrowserRouter>
-				<Router></Router>
+				<OrderContextProvider>
+					<Router></Router>
+				</OrderContextProvider>
 			</BrowserRouter>
 		</>
 	)

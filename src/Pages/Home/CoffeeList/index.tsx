@@ -46,7 +46,7 @@ export function CoffeeList({ coffees }: CoffeeListProps) {
 							<small>R$</small>
 							{formatterPrice(coffee.price)}
 						</span>
-						<ActionCart coffeeName={coffee.name} addOrRemove="add"></ActionCart>
+						<ActionCart coffee={coffee} addOrRemove="add"></ActionCart>
 					</BuyContainer>
 				</CoffeeCard>
 			))}

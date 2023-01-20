@@ -21,6 +21,19 @@ import {
 	TotalPayableContainer,
 } from './styles'
 
+const cafe = {
+	_id: '1',
+	name: 'Expresso Tradicional',
+	description: 'O tradicional café feito com água quente e grãos moídos',
+	price: 9.9,
+	imagePath: 'Expresso.svg',
+	tags: [
+		{
+			name: 'Tradicional',
+		},
+	],
+}
+
 export function Checkout() {
 	return (
 		<main>
@@ -122,10 +135,7 @@ export function Checkout() {
 									></img>
 									<div>
 										<span>Expresso Tradicional</span>
-										<ActionCart
-											coffeeName="Expresso Tradicional"
-											addOrRemove="remove"
-										></ActionCart>
+										<ActionCart coffee={cafe} addOrRemove="remove"></ActionCart>
 									</div>
 								</InfoContainer>
 								<span>R$ 9,90</span>

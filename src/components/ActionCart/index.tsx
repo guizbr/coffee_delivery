@@ -1,4 +1,7 @@
 import { ShoppingCart, Plus, Minus, Trash } from 'phosphor-react'
+import { useContext } from 'react'
+import { Coffee } from '../../@types/Coffee'
+import { OrderContext } from '../../context/OrderContext'
 
 import {
 	ActionContainer,
@@ -9,11 +12,13 @@ import {
 } from './styles'
 
 interface ActionCartProps {
-	coffeeName: string
+	coffee: Coffee
 	addOrRemove: 'add' | 'remove'
 }
 
-export function ActionCart({ coffeeName, addOrRemove }: ActionCartProps) {
+export function ActionCart({ coffee, addOrRemove }: ActionCartProps) {
+	const { coffees, handleAddToCart } = useContext(OrderContext)
+
 	function handleDown(inputName: string) {
 		const input = document.querySelector(
 			`input[name="input_${inputName}"]`,
@@ -25,40 +30,33 @@ export function ActionCart({ coffeeName, addOrRemove }: ActionCartProps) {
 		}
 	}
 
-	function handleUp(inputName: string) {
-		const input = document.querySelector(
-			`input[name="input_${inputName}"]`,
-		) as HTMLInputElement
+	const coffeeQuantity = coffees.find(
+		(coffeeItems) => coffeeItems.coffee._id === coffee._id,
+	)?.quantity
 
-		if (input !== null) {
-			const calc =
-				parseInt(input.value) + 1 > 99 ? 99 : parseInt(input.value) + 1
-			input.value = calc.toString()
-		}
-	}
+	const quantity = coffeeQuantity === undefined ? 0 : coffeeQuantity
 
 	return (
 		<ActionContainer>
 			<WrapperQuantityInput>
 				<button
 					type="button"
-					onClick={() => handleDown(`${coffeeName.trim().toLocaleLowerCase()}`)}
+					onClick={() =>
+						handleDown(`${coffee.name.trim().toLocaleLowerCase()}`)
+					}
 				>
 					<Minus size={14} weight="bold"></Minus>
 				</button>
 				<QuantityInput
-					name={`input_${coffeeName.trim().toLocaleLowerCase()}`}
+					name={`input_${coffee.name.trim().toLocaleLowerCase()}`}
 					type="number"
-					value={0}
+					value={quantity}
 					step={1}
 					min={0}
 					max={99}
 					readOnly
 				></QuantityInput>
-				<button
-					type="button"
-					onClick={() => handleUp(`${coffeeName.trim().toLocaleLowerCase()}`)}
-				>
+				<button type="button" onClick={() => handleAddToCart(coffee)}>
 					<Plus size={14} weight="bold"></Plus>
 				</button>
 			</WrapperQuantityInput>
