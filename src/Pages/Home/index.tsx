@@ -11,7 +11,8 @@ import {
 	IntroContainer,
 	IntroDescription,
 	ItemsContainer,
-	CoffeeListContainer
+	CoffeeListContainer,
+	CoffeeImageContainer
 } from './styles'
 
 export function Home() {
@@ -59,7 +60,9 @@ export function Home() {
 					</ItemsContainer>
 				</IntroDescription>
 
-				<img src={CoffeeCup} alt="Copo de café"></img>
+				<CoffeeImageContainer>
+					<img src={CoffeeCup} alt="Copo de café"></img>
+				</CoffeeImageContainer>
 			</IntroContainer>
 
 			<CoffeeListContainer>

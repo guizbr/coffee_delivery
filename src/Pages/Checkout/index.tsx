@@ -8,12 +8,17 @@ import {
 	BillContainer,
 	Checkbox,
 	CheckoutContainer,
+	ConfirmButton,
+	Delivery,
 	HeaderContainer,
 	InfoContainer,
+	ItemsTotal,
 	ListContainer,
 	OrderContainer,
+	Payable,
 	PaymentContainer,
 	PaymentMethod,
+	TotalPayableContainer,
 } from './styles'
 
 export function Checkout() {
@@ -126,6 +131,21 @@ export function Checkout() {
 								<span>R$ 9,90</span>
 							</AbstractCoffeeCard>
 						</ListContainer>
+						<TotalPayableContainer>
+							<ItemsTotal>
+								<span>Total de itens</span>
+								<span>R$ 29,70</span>
+							</ItemsTotal>
+							<Delivery>
+								<span>Entrega</span>
+								<span>R$ 3,50</span>
+							</Delivery>
+							<Payable>
+								<span>Total</span>
+								<span>R$ 33,20</span>
+							</Payable>
+						</TotalPayableContainer>
+						<ConfirmButton type="submit">Confirmar pedido</ConfirmButton>
 					</Bill>
 				</BillContainer>
 			</CheckoutContainer>

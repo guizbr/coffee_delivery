@@ -13,11 +13,11 @@ export function Header() {
 				</NavLink>
 
 				<nav>
-					<NavLink to="/checkout" title="Carrinho de compras">
+					<NavLink to="/success" title="Localização">
 						<MapPin size={22} weight="fill"></MapPin>
 						Sem local
 					</NavLink>
-					<NavLink to="/checkout" title="Localização">
+					<NavLink to="/checkout" title="Carrinho de compras">
 						<ShoppingCart size={22} weight="fill"></ShoppingCart>
 					</NavLink>
 				</nav>

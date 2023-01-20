@@ -18,6 +18,11 @@ export const CheckoutContainer = styled.form`
 
 		color: #403937;
 	}
+
+	@media (max-width: 376px) {
+		flex-direction: column;
+		flex-wrap: no-wrap;
+	}
 `
 
 export const OrderContainer = styled.section`
@@ -140,7 +145,7 @@ export const PaymentMethod = styled.div`
 export const Checkbox = styled.label`
 	flex-grow: 1;
 	flex-shrink: 0;
-	flex-basis: 200px;
+	flex-basis: 180px;
 
 	span {
 		display: flex;
@@ -204,6 +209,8 @@ export const AbstractCoffeeCard = styled.li`
 	display: flex;
 	justify-content: space-between;
 	padding: 0.5rem 0.25rem 1.9375rem 0.25rem;
+	margin-bottom: 1.5rem;
+	flex-wrap: wrap;
 
 	border-bottom: 1px solid #e6e5e5;
 
@@ -215,6 +222,12 @@ export const AbstractCoffeeCard = styled.li`
 		text-align: right;
 
 		color: #574f4d;
+	}
+
+	@media (max-width: 426px) {
+		> span {
+			margin-top: 0.5rem;
+		}
 	}
 `
 
@@ -237,4 +250,67 @@ export const InfoContainer = styled.div`
 			color: #403937;
 		}
 	}
+`
+
+export const TotalPayableContainer = styled.div`
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	margin-bottom: 1.5rem;
+`
+
+export const ItemsTotal = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	span {
+		font-size: 0.875rem;
+		line-height: 1.125rem;
+
+		display: flex;
+		align-items: center;
+		text-align: right;
+
+		color: #574f4d;
+	}
+`
+
+export const Delivery = styled(ItemsTotal)``
+
+export const Payable = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	span {
+		font-weight: 700;
+		font-size: 1.25rem;
+		line-height: 1.625rem;
+
+		display: flex;
+		align-items: center;
+		text-align: right;
+
+		color: #403937;
+	}
+`
+
+export const ConfirmButton = styled.button`
+	display: block;
+	padding: 0.75rem 0;
+
+	border-radius: 6px;
+	border: none;
+
+	font-weight: 700;
+	font-size: 0.875rem;
+	font-stretch: 100;
+	line-height: 1.375rem;
+
+	text-transform: uppercase;
+
+	color: #ffffff;
+	background: #dbac2c;
 `

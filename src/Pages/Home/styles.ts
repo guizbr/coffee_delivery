@@ -16,13 +16,14 @@ export const IntroContainer = styled.section`
 	margin-top: 12.5rem;
 	margin-bottom: 5.75rem;
 
-	img {
-		z-index: 1;
+	@media (max-width: 1024px) {
+		background: none;
 	}
 `
 
 export const IntroDescription = styled.div`
 	display: flex;
+	flex-grow: 1;
 	flex-direction: column;
 
 	h2 {
@@ -48,6 +49,24 @@ export const ItemsContainer = styled.div`
 	display: flex;
 	gap: 2.5rem;
 	margin-top: 4.125rem;
+`
+
+export const CoffeeImageContainer = styled.div`
+	flex-grow: 1;
+	max-width: 476px;
+	max-height: 360px;
+	width: 100%;
+	height: 100%;
+
+	img {
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+	}
+
+	@media (max-width: 1024px) {
+		display: none;
+	}
 `
 
 export const BaseItems = styled.div`

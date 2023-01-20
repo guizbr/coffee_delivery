@@ -25,6 +25,11 @@ export const CoffeeCard = styled.li`
 		width: 7.5rem;
 		height: 7.5rem;
 	}
+
+	@media (max-width: 426px) {
+		min-width: 100%;
+		width: 100%;
+	}
 `
 
 export const TagsContainer = styled.div`
