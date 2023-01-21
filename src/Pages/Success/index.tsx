@@ -1,5 +1,7 @@
 import { MapPin, Timer, CurrencyDollar } from 'phosphor-react'
+import { useContext } from 'react'
 import motorbike from '../../assets/Illustration.svg'
+import { OrderContext } from '../../context/OrderContext'
 
 import {
 	Address,
@@ -11,6 +13,7 @@ import {
 } from './styles'
 
 export function Success() {
+	const { address, methodPayent, timeDelivery } = useContext(OrderContext)
 	return (
 		<main>
 			<OrderConfirmedContainer>
@@ -24,8 +27,12 @@ export function Success() {
 								<MapPin size={16} weight="fill"></MapPin>
 							</span>
 							<span>
-								Entrega em <b>Rua João Daniel Martinelli, 102</b>
-								<br></br>Farrapos - Porto Alegre, RS
+								Entrega em{' '}
+								<b>
+									{address?.rua}, {address?.numero}
+								</b>
+								<br></br>
+								{address?.bairro} - {address?.cidade}, {address?.uf}
 							</span>
 						</Address>
 						<DeliveryForecast>
@@ -34,7 +41,7 @@ export function Success() {
 							</span>
 							<span>
 								Previsão de entrega<br></br>
-								<b>20 min - 30 min</b>
+								<b>{timeDelivery} min</b>
 							</span>
 						</DeliveryForecast>
 						<PaymentDelivery>
@@ -43,7 +50,9 @@ export function Success() {
 							</span>
 							<span>
 								Pagamento na entrega<br></br>
-								<b>Cartão de Crédito</b>
+								{methodPayent === 1 && <b>Cartão de Crédito</b>}
+								{methodPayent === 2 && <b>Cartão de débito</b>}
+								{methodPayent === 3 && <b>Dinheiro</b>}
 							</span>
 						</PaymentDelivery>
 					</OrderInfo>

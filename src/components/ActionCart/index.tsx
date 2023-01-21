@@ -1,5 +1,6 @@
 import { ShoppingCart, Plus, Minus, Trash } from 'phosphor-react'
 import { useContext } from 'react'
+import { NavLink } from 'react-router-dom'
 import { Coffee } from '../../@types/Coffee'
 import { OrderContext } from '../../context/OrderContext'
 
@@ -17,18 +18,12 @@ interface ActionCartProps {
 }
 
 export function ActionCart({ coffee, addOrRemove }: ActionCartProps) {
-	const { coffees, handleAddToCart } = useContext(OrderContext)
-
-	function handleDown(inputName: string) {
-		const input = document.querySelector(
-			`input[name="input_${inputName}"]`,
-		) as HTMLInputElement
-
-		if (input !== null) {
-			const calc = parseInt(input.value) - 1 < 0 ? 0 : parseInt(input.value) - 1
-			input.value = calc.toString()
-		}
-	}
+	const {
+		coffees,
+		handleAddToCart,
+		handleDecrementCartItem,
+		handleRemoveCartItem,
+	} = useContext(OrderContext)
 
 	const coffeeQuantity = coffees.find(
 		(coffeeItems) => coffeeItems.coffee._id === coffee._id,
@@ -39,12 +34,7 @@ export function ActionCart({ coffee, addOrRemove }: ActionCartProps) {
 	return (
 		<ActionContainer>
 			<WrapperQuantityInput>
-				<button
-					type="button"
-					onClick={() =>
-						handleDown(`${coffee.name.trim().toLocaleLowerCase()}`)
-					}
-				>
+				<button type="button" onClick={() => handleDecrementCartItem(coffee)}>
 					<Minus size={14} weight="bold"></Minus>
 				</button>
 				<QuantityInput
@@ -61,11 +51,16 @@ export function ActionCart({ coffee, addOrRemove }: ActionCartProps) {
 				</button>
 			</WrapperQuantityInput>
 			{addOrRemove === 'add' ? (
-				<CartButton type="button">
-					<ShoppingCart size={22} weight="fill"></ShoppingCart>
+				<CartButton>
+					<NavLink to="/checkout" title="Localização">
+						<ShoppingCart size={22} weight="fill"></ShoppingCart>
+					</NavLink>
 				</CartButton>
 			) : (
-				<RemoveButton>
+				<RemoveButton
+					type="button"
+					onClick={() => handleRemoveCartItem(coffee._id)}
+				>
 					<Trash size={18} color="#8047f8"></Trash>
 					REMOVER
 				</RemoveButton>

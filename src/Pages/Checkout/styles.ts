@@ -313,4 +313,15 @@ export const ConfirmButton = styled.button`
 
 	color: #ffffff;
 	background: #dbac2c;
+
+	transition: 0.2s;
+
+	&:not(&:disabled):hover {
+		background: #c47f17;
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		background: #d7d5d5;
+	}
 `

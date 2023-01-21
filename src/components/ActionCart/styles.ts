@@ -51,22 +51,24 @@ export const QuantityInput = styled.input`
 	}
 `
 
-export const CartButton = styled.button`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0.5rem;
+export const CartButton = styled.div`
+	a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0.5rem;
 
-	border: none;
-	border-radius: 6px;
+		border: none;
+		border-radius: 6px;
 
-	background: #4b2995;
-	color: #f3f2f2;
+		background: #4b2995;
+		color: #f3f2f2;
 
-	transition: 0.2s;
+		transition: 0.2s;
 
-	&:hover {
-		background: #8047f8;
+		&:hover {
+			background: #8047f8;
+		}
 	}
 `
 

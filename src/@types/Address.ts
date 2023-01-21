@@ -1,5 +1,5 @@
 export interface Address {
-	cep: number
+	cep: string
 	rua: string
 	numero: string
 	complemento: string

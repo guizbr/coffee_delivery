@@ -13,7 +13,7 @@ export function Header() {
 				</NavLink>
 
 				<nav>
-					<NavLink to="/success" title="Localização">
+					<NavLink to="/checkout" title="Localização">
 						<MapPin size={22} weight="fill"></MapPin>
 						Sem local
 					</NavLink>
