@@ -28,14 +28,58 @@ interface OrderContextProviderProps {
 }
 
 export function OrderContextProvider({ children }: OrderContextProviderProps) {
-	const [coffees, setCoffees] = useState<CoffeeCart[]>([])
-	const [address, setAddress] = useState<Address | null>(null)
-	const [methodPayent, setMethodPayent] = useState(0)
+	const [coffees, setCoffees] = useState<CoffeeCart[]>(() => {
+		const storedStateAsJSON = localStorage.getItem(
+			'@coffee-delivery:coffees-state-1.0.0',
+		)
+
+		if (storedStateAsJSON) {
+			return JSON.parse(storedStateAsJSON)
+		} else {
+			return []
+		}
+	})
+	const [address, setAddress] = useState<Address | null>(() => {
+		const storedStateAsJSON = localStorage.getItem(
+			'@coffee-delivery:address-state-1.0.0',
+		)
+
+		if (storedStateAsJSON) {
+			return JSON.parse(storedStateAsJSON)
+		} else {
+			return null
+		}
+	})
+	const [methodPayent, setMethodPayent] = useState(() => {
+		const storedStateAsJSON = localStorage.getItem(
+			'@coffee-delivery:methodPayent-state-1.0.0',
+		)
+
+		if (storedStateAsJSON) {
+			return JSON.parse(storedStateAsJSON)
+		} else {
+			return 0
+		}
+	})
 	const [timeDelivery, setTimeDelivery] = useState(0)
 
 	useEffect(() => {
-		console.log(coffees)
+		const stateJSON = JSON.stringify(coffees)
+
+		localStorage.setItem('@coffee-delivery:coffees-state-1.0.0', stateJSON)
 	}, [coffees])
+
+	useEffect(() => {
+		const stateJSON = JSON.stringify(address)
+
+		localStorage.setItem('@coffee-delivery:address-state-1.0.0', stateJSON)
+	}, [address])
+
+	useEffect(() => {
+		const state = methodPayent.toString()
+
+		localStorage.setItem('@coffee-delivery:methodPayent-state-1.0.0', state)
+	}, [methodPayent])
 
 	function handleAddToCart(coffee: Coffee) {
 		setCoffees((prevState) => {

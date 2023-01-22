@@ -41,11 +41,36 @@ export const HeaderContent = styled.header`
 			justify-content: center;
 			align-items: center;
 			padding: 0.5rem;
+			position: relative;
 
 			background: #f1e9c9;
 			border-radius: 6px;
 
 			color: #c47f17;
+
+			span {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				padding: 0px;
+
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				right: -8.35px;
+				top: -8px;
+
+				background: #c47f17;
+				border-radius: 1000px;
+
+				font-weight: 700;
+				font-size: 0.75rem;
+
+				text-align: center;
+
+				color: #ffffff;
+			}
 		}
 	}
 `

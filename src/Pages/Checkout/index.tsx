@@ -28,25 +28,33 @@ export function Checkout() {
 	const navigate = useNavigate()
 	const {
 		coffees,
+		address,
+		methodPayent,
 		submitAddress,
 		submitMethodPayment,
 		submitTimeDelivery,
 		handleResetCoffees,
 	} = useContext(OrderContext)
-	const [cep, setCep] = useState('')
-	const [rua, setRua] = useState('')
-	const [numero, setNumero] = useState('')
-	const [complemento, setComplemento] = useState('')
-	const [bairro, setBairro] = useState('')
-	const [cidade, setCidade] = useState('')
-	const [uf, setUf] = useState('')
-	const [pagamento, setPagamento] = useState(0)
+	const [cep, setCep] = useState(address?.cep)
+	const [rua, setRua] = useState(address?.rua)
+	const [numero, setNumero] = useState(address?.numero)
+	const [complemento, setComplemento] = useState(address?.complemento)
+	const [bairro, setBairro] = useState(address?.bairro)
+	const [cidade, setCidade] = useState(address?.cidade)
+	const [uf, setUf] = useState(address?.uf)
+	const [pagamento, setPagamento] = useState(methodPayent)
 
 	function formatCurrency(value: number) {
 		return new Intl.NumberFormat('pt-br', {
 			style: 'currency',
 			currency: 'BRL',
 		}).format(value)
+	}
+
+	function handleCep(cep: string) {
+		cep = cep.replace(/\D/g, '').slice(0, 8)
+		cep = cep.replace(/(\d{5})(\d)/, '$1-$2')
+		setCep(cep)
 	}
 
 	const deliveryValue = 3.5
@@ -57,6 +65,11 @@ export function Checkout() {
 
 	function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault()
+
+		if (pagamento === 0) {
+			alert('Selecione um método de pagamento!')
+			return false
+		}
 
 		const newAddress = {
 			cep,
@@ -98,10 +111,11 @@ export function Checkout() {
 							<input
 								name="cep"
 								value={cep}
-								onChange={(e) => setCep(e.target.value)}
+								onChange={(e) => handleCep(e.target.value)}
 								type="text"
 								placeholder="CEP"
 								style={{ maxWidth: 200 }}
+								required
 							></input>
 							<input
 								name="rua"
@@ -109,6 +123,7 @@ export function Checkout() {
 								onChange={(e) => setRua(e.target.value)}
 								type="text"
 								placeholder="Rua"
+								required
 							></input>
 							<div>
 								<input
@@ -118,6 +133,7 @@ export function Checkout() {
 									type="text"
 									placeholder="Número"
 									style={{ flexBasis: 200, flexShrink: 0 }}
+									required
 								></input>
 								<div className="input-optional-wrapper">
 									<input
@@ -137,6 +153,7 @@ export function Checkout() {
 									type="text"
 									placeholder="Bairro"
 									style={{ flexGrow: 1, flexBasis: 200, flexShrink: 0 }}
+									required
 								></input>
 								<input
 									name="cidade"
@@ -145,6 +162,7 @@ export function Checkout() {
 									type="text"
 									placeholder="Cidade"
 									style={{ flexGrow: 1, flexBasis: 200 }}
+									required
 								></input>
 								<input
 									name="uf"
@@ -154,6 +172,7 @@ export function Checkout() {
 									placeholder="UF"
 									style={{ maxWidth: 60 }}
 									maxLength={2}
+									required
 								></input>
 							</div>
 						</Address>
