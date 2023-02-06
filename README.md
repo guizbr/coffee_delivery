@@ -1,6 +1,6 @@
 ## Introdução
 
-Nesse desafio da Rocketseat da trilha de ReactJS do Ignite, desenvolvi um site do zero para gerenciar o carrinho de compras de uma cafeteria fictícia, utilizando o Vite e Styled Components, onde o layout do site e imagens foram disponibilizados pela própria Rocketseat.
+Nesse desafio da Rocketseat da trilha de ReactJS do Ignite, desenvolvi um site do zero para gerenciar o carrinho de compras de uma cafeteria fictícia, utilizando a ferramenta de construção Vite, TypeScript e Styled Components, onde o layout do site e imagens foram disponibilizados pela própria Rocketseat.
 
 ## Sobre o projeto
 
